@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Order History - AA Delish</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/ico.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <style>
+        /* Add custom styles for order history page */
+    </style>
+</head>
+<body>
+
+    <div class="main-container-detail">
+        <div class="main-container-background" style="margin-top: 20px">
+            <img src="img/bg_banner2.jpg" alt="Banner Image">
+        </div>
+
+        <div class="main" style="margin-top: 20px">
+            <h2>Order History</h2>
+            <!-- Add a container to display order history -->
+            <div id="orderHistoryContainer">
+                <!-- Order history items will be dynamically added here -->
+            </div>
+           
+            <div id="noHistoryMessage" style="display: none;">
+                <p>No history found.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container-fixed">
+        <div class="main">
+            <div class="row" style="image-rendering: auto;">
+                <div class="col-2 col-btn">
+                    <a href="dashboard.html" class="btn-link" id="orders-link">
+                        <i class="fas fa-home" style="color: #4e2415"></i>
+                        <br/>
+                        <i class="paragraph-text-smm" style="color: #4e2415">Home</i>
+                    </a>
+                </div>
+    
+                <div class="col-2 col-btn">
+                    <a href="orders.html" class="btn-link" id="orders-link">
+                        <i class="fas fa-history" style="color: #4e2415"></i>
+                        <br/>
+                        <i class="paragraph-text-smm" style="color: #4e2415">Orders</i>
+                    </a>
+                </div>
+    
+                <div class="col-2 col-btn">
+                    <a href="menu.html" class="btn-link" id="menu-link">
+                        <i class="fas fa-cookie" style="color: #4e2415"></i>
+                        <br/>
+                        <i class="paragraph-text-smm" style="color: #4e2415">Menu</i>
+                    </a>
+                </div>
+    
+                <div class="col-2 col-btn">
+                    <a href="offers.html" class="btn-link" id="offers-link">
+                        <i class="fas fa-tag" style="color: #4e2415"></i>
+                        <br/>
+                        <i class="paragraph-text-smm" style="color: #4e2415">Offers</i>
+                    </a>
+                </div>
+    
+                <div class="col-2 col-btn">
+                    <a href="profile.html" class="btn-link" id="profile-link">
+                        <i class="fas fa-user" style="color: #4e2415"></i>
+                        <br/>
+                        <i class="paragraph-text-smm" style="color: #4e2415">Profile</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript to highlight the clicked link
+        var links = document.querySelectorAll('.btn-link');
+    
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                // Remove 'active' class from all links
+                links.forEach(function(l) {
+                    l.classList.remove('active');
+                });
+                // Add 'active' class to the clicked link
+                this.classList.add('active');
+            });
+        });
+    </script>
+    
+    
+
+    <script>
+        // JavaScript function to check if there is no history found
+        function checkNoHistory() {
+            var orderHistoryContainer = document.getElementById('orderHistoryContainer');
+            var noHistoryMessage = document.getElementById('noHistoryMessage');
+            if (orderHistoryContainer.children.length === 0) {
+                // If no history found, display the message and button
+                noHistoryMessage.style.display = 'block';
+            } else {
+                // If history found, hide the message and button
+                noHistoryMessage.style.display = 'none';
+            }
+        }
+
+        // Function to simulate making an order (replace with actual functionality)
+        function makeOrder() {
+            // Replace this with the logic to make an order
+            alert('Redirecting to order page...');
+        }
+
+        // Call the checkNoHistory function when the page loads
+        window.onload = function() {
+            checkNoHistory();
+        };
+    </script>
+</body>
+</html>

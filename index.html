@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>User Profile - AA Delish</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/ico.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #F4EBDC;
+        }
+        .main-container {
+            text-align: center;
+        }
+        .main {
+            width: 300px;
+            margin: auto;
+        }
+        .main img {
+            width: 250px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        .paragraph-text {
+            font-size: 14px;
+        }
+        .a-link {
+            text-decoration: none;
+            color: #4e2415;
+            font-weight: bolder;
+        }
+        .primary-btn-wide {
+            width: 100%;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            background-color: #d42603;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .primary-btn-wide:hover {
+            background-color: #693427;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="main">
+        <img src="img/bg_banner.jpg" />
+        <br/><br/>
+        <br/>
+        <h3>The easiest way to order</h3>
+        <p class="paragraph-text">No lines, No waiting</p>
+        <br/>
+        <p class="paragraph-text" style="font-size: 10px;">
+            By proceeding you confirm that you have read our 
+            <br/>
+            <b><a class="a-link" href="privacy.html">Privacy policy</a></b>
+        </p>
+        <a href="notification.html">
+            <button type="button" class="primary-btn-wide" id="btn">Let's start</button>
+        </a>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btn').addEventListener('click', function() {
+        this.style.animation = 'bounce 0.5s ease';
+        setTimeout(() => {
+            this.style.animation = '';
+        }, 500);
+    });
+</script>
+
+</body>
+</html>

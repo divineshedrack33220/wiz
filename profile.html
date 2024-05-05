@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>User Profile - AA Delish</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/ico.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <style>
+      
+        .main-container-detail {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            height: 100vh;
+        }
+
+        .main1 {
+            background-color: #f4ebdc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.589);
+            max-width: 400px;
+        }
+
+        .main1 h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .profile-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-info label {
+            margin-bottom: 5px;
+        }
+
+        .profile-info input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        .profile-info input:focus {
+            border-color: #007bff;
+        }
+
+        .profile-info button {
+            padding: 10px 0;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .profile-info button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <div class="main-container-background" style="margin-top: 20px">
+            <img src="img/bg_banner2.jpg" alt="Banner Image">
+        </div>
+    <div class="main-container-detail">
+        <div class="main1">
+            <h2>User Profile</h2>
+            <form class="profile-form">
+                <div class="profile-info">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="John Doe">
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" value="+1234567890">
+
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" value="123 Main St, City, Country">
+
+                    <label for="payment">Payment Method:</label>
+                    <input type="text" id="payment" name="payment" value="Visa ending in 1234">
+                </div>
+
+                <button class="primary-btn" type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+<div class="main-container-fixed">
+    <div class="main">
+        <div class="row" style="image-rendering: auto;">
+            <div class="col-2 col-btn">
+				<a href="dashboard.html" class="btn-link" id="orders-link">
+                    <i class="fas fa-home" style="color: #4e2415"></i>
+                    <br/>
+                    <i class="paragraph-text-smm" style="color: #4e2415">Home</i>
+                </a>
+            </div>
+
+            <div class="col-2 col-btn">
+                <a href="orders.html" class="btn-link" id="orders-link">
+                    <i class="fas fa-history" style="color: #4e2415"></i>
+                    <br/>
+                    <i class="paragraph-text-smm" style="color: #4e2415">Orders</i>
+                </a>
+            </div>
+
+            <div class="col-2 col-btn">
+                <a href="menu.html" class="btn-link" id="menu-link">
+                    <i class="fas fa-cookie" style="color: #4e2415"></i>
+                    <br/>
+                    <i class="paragraph-text-smm" style="color: #4e2415">Menu</i>
+                </a>
+            </div>
+
+            <div class="col-2 col-btn">
+                <a href="offers.html" class="btn-link" id="offers-link">
+                    <i class="fas fa-tag" style="color: #4e2415"></i>
+                    <br/>
+                    <i class="paragraph-text-smm" style="color: #4e2415">Offers</i>
+                </a>
+            </div>
+
+            <div class="col-2 col-btn">
+                <a href="profile.html" class="btn-link" id="profile-link">
+                    <i class="fas fa-user" style="color: #4e2415"></i>
+                    <br/>
+                    <i class="paragraph-text-smm" style="color: #4e2415">Profile</i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // JavaScript to highlight the clicked link
+    var links = document.querySelectorAll('.btn-link');
+
+    links.forEach(function(link) {
+        link.addEventListener('click', function() {
+            // Remove 'active' class from all links
+            links.forEach(function(l) {
+                l.classList.remove('active');
+            });
+            // Add 'active' class to the clicked link
+            this.classList.add('active');
+        });
+    });
+</script>
+

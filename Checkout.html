@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>AA Delish - Checkout</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/ico.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <style>
+        /* Additional CSS for Checkout Page */
+        .checkout-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .checkout-item:last-child {
+            border-bottom: none; /* Remove border for last item */
+        }
+        .checkout-item img {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+        .checkout-item div {
+            flex-grow: 1;
+        }
+        .checkout-item p {
+            margin: 5px 0;
+        }
+        .checkout-item input {
+            width: 50px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .checkout-item button {
+            background-color: #ff5252;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .checkout-item button:hover {
+            background-color: #ff1744;
+        }
+        #totalPrice {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        #btnCheckout {
+            background-color: #693427;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        #btnCheckout:hover {
+            background-color: #693427;
+        }
+        #checkoutContainer {
+            display: none;
+        }
+        #noItemsMessage {
+            display: block; 
+            text-align: center;
+            font-size: 18px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="main-container-detail">
+    <div class="main-container-background" style="margin-top: 20px">
+        <img src="img/bg_banner2.jpg" alt="Banner Image">
+    </div>
+
+    <div class="main" id="checkoutContainer">
+        <h2>Checkout</h2>
+        <div id="checkoutItems"></div>
+        <div>Total: <span id="totalPrice">₦ 0.00</span></div>
+        <button class="primary-btn-wide" id="btnCheckout">Checkout</button>
+    </div>
+
+    <div id="noItemsMessage">
+        No items added to the cart.
+    </div>
+
+  
+
+<div class="main-container-fixed">
+    <div class="main">
+        <!-- Navigation Links -->
+    </div>
+</div>
+<div class="main-container-fixed">
+    <div class="main">
+        <div class="row" style="image-rendering: auto;">
+            <div class="col-2 col-btn">
+				<a href="dashboard.html" class="btn-link" id="orders-link">
+                    <i class="fas fa-home" style="color: #4e2415"></i>
+                    <br/>
+                    <i class="paragraph-text-smm" style="color: #4e2415">Home</i>
+                </a>
+            </div>
+
+            <div class="col-2 col-btn">
+                <a href="orders.html" class="btn-link" id="orders-link">
+                    <i class="fas fa-history" style="color: #4e2415"></i>
+                    <br/>
+                    <i class="paragraph-text-smm" style="color: #4e2415">Orders</i>
+                </a>
+            </div>
+
+            <div class="col-2 col-btn">
+                <a href="menu.html" class="btn-link" id="menu-link">
+                    <i class="fas fa-cookie" style="color: #4e2415"></i>
+                    <br/>
+                    <i class="paragraph-text-smm" style="color: #4e2415">Menu</i>
+                </a>
+            </div>
+
+            <div class="col-2 col-btn">
+                <a href="offers.html" class="btn-link" id="offers-link">
+                    <i class="fas fa-tag" style="color: #4e2415"></i>
+                    <br/>
+                    <i class="paragraph-text-smm" style="color: #4e2415">Offers</i>
+                </a>
+            </div>
+
+            <div class="col-2 col-btn">
+                <a href="profile.html" class="btn-link" id="profile-link">
+                    <i class="fas fa-user" style="color: #4e2415"></i>
+                    <br/>
+                    <i class="paragraph-text-smm" style="color: #4e2415">Profile</i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+   
+
+    function displaySelectedItems() {
+        var checkoutContainer = document.getElementById("checkoutContainer");
+        var noItemsMessage = document.getElementById("noItemsMessage");
+
+        // If there are no selected items, display the no items message and hide the checkout container
+        if (selectedItems.length === 0) {
+            noItemsMessage.style.display = "block";
+            checkoutContainer.style.display = "none";
+            return; // Exit the function
+        }
+
+        // If there are selected items, display the checkout container and hide the no items message
+        noItemsMessage.style.display = "none";
+        checkoutContainer.style.display = "block";
+
+        var checkoutItems = document.getElementById("checkoutItems");
+        var totalPrice = 0;
+        checkoutItems.innerHTML = "";
+        selectedItems.forEach(function(item, index) {
+            var itemTotal = item.price * item.quantity;
+            totalPrice += itemTotal;
+            checkoutItems.innerHTML += `
+                <div class="checkout-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div>
+                        <p>${item.name}</p>
+                        <p>Price: ₦ ${item.price.toFixed(2)}</p>
+                        <input type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)">
+                        <p>Total: ₦ ${itemTotal.toFixed(2)}</p>
+                        <button onclick="deleteItem(${index})">Delete</button>
+                    </div>
+                </div>`;
+        });
+        document.getElementById("totalPrice").textContent = `₦ ${totalPrice.toFixed(2)}`;
+    }
+
+    function updateQuantity(index, newQuantity) {
+        selectedItems[index].quantity = parseInt(newQuantity);
+        displaySelectedItems();
+    }
+
+    function deleteItem(index) {
+        selectedItems.splice(index, 1);
+        displaySelectedItems();
+    }
+
+    displaySelectedItems();
+</script>
+
+</body>
+</html>

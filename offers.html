@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    <title>AA Delish - Offers</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/ico.png" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <style>
+        /* Custom CSS for offers page */
+        .category {
+            margin-top: 20px;
+        }
+        .category h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .offer-list {
+            display: flex;
+            justify-content: flex-start; /* Align items to the left */
+        }
+        .offer-item {
+            width: 30%;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative; /* Position relative for absolute positioning */
+        }
+        .offer-item img {
+            width: 100%;
+        }
+        .offer-item p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .dropdown {
+            position: center;
+            top: 100%;
+            left: 100%;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 10px;
+            margin: 23px;
+            width: 250px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.329);
+            display: none; /* Initially hidden */
+        }
+        .dropdown.active {
+            display: block; 
+        }
+        .dropdown-arrow {
+            position: absolute;
+            top: 10%;
+            left: 270px;
+            transform: translateY(50%);
+            cursor: pointer;
+        }
+        /* Footer styling */
+        footer {
+            background-color: #d42603; /* Set background color */
+            color: #fff; /* Set text color */
+            text-align: center; /* Align text to the center */
+            padding: 20px 0; /* Add padding */
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container-detail">
+    <div class="main-container-background">
+        <img src="img/bg_banner2.jpg" />
+    </div>
+
+    <div class="main">
+        <h2>Special Offers</h2>
+
+        <div class="offer-item">
+            <img src="img/food_1.png" alt="Classic Burger (small)" />
+            <p>The Classic Burger (small)</p>
+            <div class="dropdown-arrow" onclick="toggleDropdown(this)">&#9660;</div>
+            <div class="dropdown">
+                <p>This is the description of the Classic Burger (small) offer.</p>
+            </div>
+        </div>
+        <div class="offer-item">
+            <img src="img/food_1.png" alt="Classic Burger (small)" />
+            <p>The Classic Burger (small)</p>
+            <div class="dropdown-arrow" onclick="toggleDropdown(this)">&#9660;</div>
+            <div class="dropdown">
+                <p>This is the description of the Classic Burger (small) offer.</p>
+            </div>
+        </div>
+    </div>
+</div>
+`
+<div class="main-container-fixed">
+    <div class="main">
+        <a href="menu.html">
+            <button class="primary-btn-wide" id="btn">Close offer</button>
+        </a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer></footer>
+
+<script>
+    function toggleDropdown(element) {
+        var dropdown = element.parentNode.querySelector('.dropdown');
+        var allDropdowns = document.querySelectorAll('.dropdown');
+        allDropdowns.forEach(function(dropdownElement) {
+            if (dropdownElement !== dropdown) {
+                dropdownElement.classList.remove('active');
+            }
+        });
+        dropdown.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
